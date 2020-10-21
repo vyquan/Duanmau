@@ -21,9 +21,9 @@ for ($t = 1; $t <= $sotrang; $t++) { ?>
 
 }
 if (isset($_POST['submit'])) {
-    if (isset($_FILES['abc'])&& $_FILES['abc']["name"]!=null) {
+    if (isset($_FILES['abc']) && $_FILES['abc']["name"] != null) {
         echo "abc";
-    }else{
+    } else {
         echo "jvbjkdbvbd";
     }
 }

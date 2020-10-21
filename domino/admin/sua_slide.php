@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
         $status = isset($row['status']) ? $row['status'] : '';
         $img = isset($row['img']) ? $row['img'] : '';
     }
-}else{
+} else {
     header("Location:slide.php");
 }
 if (isset($_POST['submit'])) {
@@ -20,7 +20,6 @@ if (isset($_POST['submit'])) {
     $details_new = $_POST['details'];
     $status_new = $_POST['status'];
     $img_new = $_FILES['img'];
-
     if (isset($_FILES['img']) && $_FILES['img']['name']) {
         $maxSize = 8000000;
         $upload = true;
@@ -39,51 +38,51 @@ if (isset($_POST['submit'])) {
             var_dump($imgname);
             move_uploaded_file($img_new['tmp_name'], $dir . $imgname);
             try {
-                action("UPDATE  slideshow SET img = '$img_new',title = '$title_new',link = '$link_new',detail =' $details_new',status= '$status_new' WHERE id = '$id'");
+                action("UPDATE  slideshow SET img = '$imgname',title = '$title_new',link = '$link_new',detail =' $details_new',status= '$status_new' WHERE id = '$id'");
                 header("Location:slide.php");
             } catch (PDOException $e) {
                 echo $e->getMessage();
             }
         }
-    }else{
+    } else {
         action("UPDATE  slideshow SET title = '$title_new',link = '$link_new',detail =' $details_new',status= '$status_new' WHERE id = '$id'");
         header("Location:slide.php");
     }
 }
 ?>
-            <!-- Mobile Menu end -->
-            <div class="breadcome-area">
-                <div class="container-fluid">
+<!-- Mobile Menu end -->
+<div class="breadcome-area">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="breadcome-list single-page-breadcome">
                     <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="breadcome-list single-page-breadcome">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <div class="breadcome-heading">
-                                            <!-- <form role="search" class="sr-input-func">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="breadcome-heading">
+                                <!-- <form role="search" class="sr-input-func">
                                                 <input type="text" placeholder="Search..." class="search-int form-control">
                                                 <a href="#"><i class="fa fa-search"></i></a>
                                             </form> -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <ul class="breadcome-menu">
-                                            <li><a href="#">Admin</a> <span class="bread-slash">/</span>
-                                            </li>
-                                            <li><span class="bread-blod">Sửa slide</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <ul class="breadcome-menu">
+                                <li><a href="#">Admin</a> <span class="bread-slash">/</span>
+                                </li>
+                                <li><span class="bread-blod">Sửa slide</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        
-        
-        <!-- Single pro tab review Start-->
-        <!-- <div class="single-pro-review-area mt-t-30 mg-b-15">
+        </div>
+    </div>
+</div>
+
+
+<!-- Single pro tab review Start-->
+<!-- <div class="single-pro-review-area mt-t-30 mg-b-15">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -212,29 +211,29 @@ if (isset($_POST['submit'])) {
                 </div>
             </div>
         </div> -->
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h3 style="text-align:center">Thêm mới Slideshow</h3>
-            <?php if (isset($error)) { ?>
-                <p class="alert alert-danger"><?= $error ?></p>
-            <?php
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <h3 style="text-align:center">Thêm mới Slideshow</h3>
+    <?php if (isset($error)) { ?>
+        <p class="alert alert-danger"><?= $error ?></p>
+    <?php
 
-            } ?>
-            <form method="post" id="slide" enctype="multipart/form-data">
-                <label>Hình ảnh</label>
-                <input id="img" type="file" name="img" class="form-control" onchange="changeImg(this)">
-                <img id="avatar" class="thumbnail" width="300px" height="200px" src="../public/slide/<?= $img ?>">
-                <label for="">Tiêu đề</label> <br>
-                <input class="form-control" type="text" name="title" value="<?= $title ?>"> <br> <br>
-                <label for="">Đường dẫn</label> <br>
-                <input class="form-control" type="text" name="link" value="<?= $link ?>"> <br> <br>
-                <label for="details">Mô tả</label>
-                <textarea class="summernote form-control" name="details"><?= $detail ?></textarea>
-                <label for="details">Trạng thái</label>
-                <select class="form-control" name="status">
-                    <option value="0">Hiển thị</option>
-                    <option value="1">Ẩn</option>
-                </select> <br> <br>
-                <button type="submit" name="submit" class="btn btn-primary waves-effect waves-light">Cập nhật</button>
-                <a href="slideshow.php" class="btn btn-primary waves-effect waves-light">Quay lại</a>
-            </form>
-        </div>
+    } ?>
+    <form method="post" id="slide" enctype="multipart/form-data">
+        <label>Hình ảnh</label>
+        <input id="img" type="file" name="img" class="form-control" onchange="changeImg(this)">
+        <img id="avatar" class="thumbnail" width="300px" height="200px" src="../public/slide/<?= $img ?>">
+        <label for="">Tiêu đề</label> <br>
+        <input class="form-control" type="text" name="title" value="<?= $title ?>"> <br> <br>
+        <label for="">Đường dẫn</label> <br>
+        <input class="form-control" type="text" name="link" value="<?= $link ?>"> <br> <br>
+        <label for="details">Mô tả</label>
+        <textarea class="summernote form-control" name="details"><?= $detail ?></textarea>
+        <label for="details">Trạng thái</label>
+        <select class="form-control" name="status">
+            <option value="0">Hiển thị</option>
+            <option value="1">Ẩn</option>
+        </select> <br> <br>
+        <button type="submit" name="submit" class="btn btn-primary waves-effect waves-light">Cập nhật</button>
+        <a href="slideshow.php" class="btn btn-primary waves-effect waves-light">Quay lại</a>
+    </form>
+</div>

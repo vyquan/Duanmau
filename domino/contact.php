@@ -1,52 +1,52 @@
 <?php include('header.php');
 ?>
-	<!--================ End Header Menu Area =================-->
+<!--================ End Header Menu Area =================-->
 
 
-	<!-- ================ start banner area ================= -->
-	<section class="blog-banner-area" id="contact">
-		<div class="container h-100">
-			<div class="blog-banner">
-				<div class="text-center">
-					<h1>Liên Hệ</h1>
-					<nav aria-label="breadcrumb" class="banner-breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Liên Hệ</li>
-            </ol>
-          </nav>
-				</div>
-			</div>
+<!-- ================ start banner area ================= -->
+<section class="blog-banner-area" id="contact">
+  <div class="container h-100">
+    <div class="blog-banner">
+      <div class="text-center">
+        <h1>Liên Hệ</h1>
+        <nav aria-label="breadcrumb" class="banner-breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Liên Hệ</li>
+          </ol>
+        </nav>
+      </div>
     </div>
-	</section>
-	<!-- ================ end banner area ================= -->
+  </div>
+</section>
+<!-- ================ end banner area ================= -->
 
-  <!-- ================ contact section start ================= -->
-  <?php
-foreach(selectDb("SELECT * FROM info LIMIT 1") as $row){?>
+<!-- ================ contact section start ================= -->
+<?php
+foreach (selectDb("SELECT * FROM info LIMIT 1") as $row) { ?>
   <section class="section-margin--small">
     <div class="container">
-      <center><?=$row['map']?></center>
+      <center><?= $row['map'] ?></center>
 
       <div style="margin-top: 50px;" class="row">
         <div class="col-md-4 col-lg-3 mb-4 mb-md-0">
           <div class="media contact-info">
             <span class="contact-info__icon"><i class="ti-home"></i></span>
             <div class="media-body">
-              <h3><?=$row['address'] ?></h3>
+              <h3><?= $row['address'] ?></h3>
             </div>
           </div><br>
           <div class="media contact-info">
             <span class="contact-info__icon"><i class="ti-headphone"></i></span>
             <div class="media-body">
-              <h3><a href="#"><?=$row['phone'] ?></a></h3>
+              <h3><a href="#"><?= $row['phone'] ?></a></h3>
               <p>T2 - T6, 9h00 đến 18h00</p>
             </div>
           </div>
           <div class="media contact-info">
             <span class="contact-info__icon"><i class="ti-email"></i></span>
             <div class="media-body">
-              <h3><a href="mailto:support@colorlib.com"><?=$row['gmail'] ?></a></h3>
+              <h3><a href="mailto:support@colorlib.com"><?= $row['gmail'] ?></a></h3>
               <p>Gửi cho chúng tôi thắc mắc của bạn bất cứ lúc nào!</p>
             </div>
           </div>
@@ -67,7 +67,7 @@ foreach(selectDb("SELECT * FROM info LIMIT 1") as $row){?>
               </div>
               <div class="col-lg-7">
                 <div class="form-group">
-                    <textarea class="form-control different-control w-100" name="message" id="message" cols="30" rows="5" placeholder="Nhập tin nhắn"></textarea>
+                  <textarea class="form-control different-control w-100" name="message" id="message" cols="30" rows="5" placeholder="Nhập tin nhắn"></textarea>
                 </div>
               </div>
             </div>
@@ -79,12 +79,12 @@ foreach(selectDb("SELECT * FROM info LIMIT 1") as $row){?>
       </div>
     </div>
   </section>
-	<!-- ================ contact section end ================= -->
-  <?php
+  <!-- ================ contact section end ================= -->
+<?php
 }
 ?>
-  
 
-  <!--================ Start footer Area  =================-->	
-	  <!--================ Start footer Area  =================-->	
-    <?php include('footer.php')?>
+
+<!--================ Start footer Area  =================-->
+<!--================ Start footer Area  =================-->
+<?php include('footer.php') ?>

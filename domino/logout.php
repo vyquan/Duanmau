@@ -7,4 +7,3 @@ if (isset($_SESSION['user'])) {
 	unset($_SESSION['admin']);
 	header("Location:index.php");
 }
-?>

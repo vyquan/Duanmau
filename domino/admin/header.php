@@ -1,15 +1,17 @@
 <?php session_start();
 if (!isset($_SESSION['admin'])) {
-	header("Location:../index.php");
+    header("Location:../index.php");
 }
 include('../function.php');
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Danh mục | Domino Admin</title><link rel="icon" href="../img/Fevicon.png" type="image/png">
+    <title>Danh mục | Domino Admin</title>
+    <link rel="icon" href="../img/Fevicon.png" type="image/png">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -79,7 +81,7 @@ include('../function.php');
             <div style="margin-top: 20px;" class="sidebar-header">
                 <?php
                 foreach (selectDb("SELECT * FROM info") as $item) { ?>
-                <a href="../index.php"><img class="main-logo" src="../public/logo_icon/<?=$item['logo'] ?>" alt="" /></a>
+                    <a href="../index.php"><img class="main-logo" src="../public/logo_icon/<?= $item['logo'] ?>" alt="" /></a>
                 <?php
                 }
                 ?>
@@ -103,12 +105,12 @@ include('../function.php');
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="Danh Sách Bình Luận" href="binh_luan.php"><span class="mini-sub-pro">Danh Sách Bình Luận</span></a></li>
                             </ul>
-                          </li>
+                        </li>
                         <li>
                             <a class="has-arrow" href="slide.php" aria-expanded="false"><span class="educate-icon educate-apps icon-wrap"></span> <span class="mini-click-non">Slide</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="Thêm Slide" href="them_slide.php"><span class="mini-sub-pro">Thêm Slide</span></a></li>
-                                <li><a title="Danh Sách Slide" href="slide.php"><span class="mini-sub-pro">Danh Sách Slide</span></a></li>                               
+                                <li><a title="Danh Sách Slide" href="slide.php"><span class="mini-sub-pro">Danh Sách Slide</span></a></li>
                             </ul>
                         </li>
                         <li>
@@ -155,8 +157,8 @@ include('../function.php');
                                     <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                         <div class="menu-switcher-pro">
                                             <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-													<i class="educate-icon educate-nav"></i>
-												</button>
+                                                <i class="educate-icon educate-nav"></i>
+                                            </button>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
@@ -181,14 +183,14 @@ include('../function.php');
                                                     <tr>
                                                         <span class="admin-name">Xin chào: <?= $item['name'] ?></span><i class="fa fa-angle-down edu-icon edu-down-arrow"></i> </a>
                                                         <?php
-                                                        }
+                                                    }
                                                         ?>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
                                                         <li><a href="../logout.php"><span class="edu-icon edu-locked author-log-ic"></span>Đăng xuất</a>
                                                         </li> -->
-                                                    </ul>
-                                                </li>
-                                                </li>
+                                            </ul>
+                                            </li>
+                                            </li>
                                             </ul>
                                         </div>
                                     </div>
